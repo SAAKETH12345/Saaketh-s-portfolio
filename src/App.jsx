@@ -31,9 +31,9 @@ function ServiceItem({ num, title, imageSrc }) {
         {title}
       </h3>
       
-      {/* Follower Image */}
+      {/* Follower Image (Hidden on Mobile) */}
       <motion.div
-        className="absolute top-0 left-0 w-[300px] h-[200px] md:w-[400px] md:h-[250px] pointer-events-none z-0"
+        className="absolute top-0 left-0 w-[300px] h-[200px] md:w-[400px] md:h-[250px] pointer-events-none z-0 hidden md:block"
         style={{ x: smoothX, y: smoothY }}
         initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
         animate={{ 
@@ -77,9 +77,9 @@ function ProjectItem({ project, index }) {
         {project.title}
       </h3>
       
-      {/* Follower Image */}
+      {/* Follower Image (Hidden on Mobile) */}
       <motion.div
-        className="absolute top-0 left-0 w-[300px] h-[200px] md:w-[400px] md:h-[300px] pointer-events-none z-0"
+        className="absolute top-0 left-0 w-[300px] h-[200px] md:w-[400px] md:h-[300px] pointer-events-none z-0 hidden md:block"
         style={{ x: smoothX, y: smoothY }}
         initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
         animate={{ 
@@ -127,7 +127,7 @@ function CustomCursor() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-5 h-5 border-2 rounded-full pointer-events-none z-[9999] mix-blend-difference"
+      className="fixed top-0 left-0 w-5 h-5 border-2 rounded-full pointer-events-none z-[9999] mix-blend-difference hidden md:block"
       style={{ x: cursorX, y: cursorY }}
       animate={{
         scale: isHovering ? 1.5 : 1,
@@ -181,9 +181,8 @@ function App() {
     offset: ["start end", "center center"]
   })
   
-  // 2. Fix Broken Blue Scroll Wipe (Seamless Section Wipe)
-  // Expand from 0 to 150vw radius from bottom-left edge as the section scrolls in
-  const clipRadius = useTransform(wipeProgress, [0, 1], [0, 150])
+  // Expand from 0 to 300vw radius (to cover tall mobile aspect ratios) as the section scrolls in
+  const clipRadius = useTransform(wipeProgress, [0, 1], [0, 300])
   const clipPathValue = useMotionTemplate`circle(${clipRadius}vw at 0% 100%)`
 
   // Footer Parallax Setup
@@ -283,7 +282,7 @@ function App() {
           <motion.h2 
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-50px" }}
             className="text-[6vw] font-black tracking-tighter mb-12 uppercase border-b-8 border-secondary pb-4 inline-block"
           >
             THE ARCHITECT.
@@ -293,7 +292,7 @@ function App() {
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.2 }}
               className="text-2xl md:text-[2.5vw] font-heading font-bold leading-tight tracking-tight"
             >
@@ -302,7 +301,7 @@ function App() {
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.4 }}
               className="text-lg md:text-xl font-heading font-medium leading-relaxed opacity-80"
             >
@@ -318,7 +317,7 @@ function App() {
           <motion.div 
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="mb-24 px-6 md:px-12"
           >
@@ -341,7 +340,7 @@ function App() {
           <motion.div 
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="mb-24 px-6 md:px-12"
           >
