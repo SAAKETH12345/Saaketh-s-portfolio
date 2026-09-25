@@ -222,7 +222,7 @@ function App() {
       <CustomCursor />
       
       {/* Header / Navbar */}
-      <header className="fixed top-6 right-6 lg:right-12 z-50 pointer-events-none mix-blend-difference text-white">
+      <header className="fixed top-6 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-6 lg:right-12 z-50 pointer-events-none mix-blend-difference text-white w-max">
         <div className="flex gap-2 pointer-events-auto hover-trigger bg-white/10 backdrop-blur-3xl border border-white/20 p-2 rounded-full shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]">
           <a href="https://www.linkedin.com/in/kazipeta-saaketh/" target="_blank" rel="noopener noreferrer" className="rounded-full px-6 py-2.5 text-xs font-bold hover:bg-white hover:text-black transition-colors uppercase tracking-widest inline-flex items-center cursor-pointer">
             LINKEDIN
@@ -237,7 +237,7 @@ function App() {
       <section className="h-screen w-full relative grid grid-cols-12 grid-rows-6 px-8 overflow-hidden">
         
         {/* Side-by-Side Hero Content */}
-        <div className="absolute inset-0 flex flex-col md:flex-row items-center justify-center md:justify-start w-full h-full z-20 px-4 md:pl-20 md:pr-12 pt-16 md:pt-20 gap-6 md:gap-12">
+        <div className="absolute inset-0 flex flex-col md:flex-row items-center justify-center md:justify-start w-full h-full z-20 px-4 md:pl-20 md:pr-12 pt-32 md:pt-20 gap-6 md:gap-12">
           
           {/* Left Side: Circle Portrait */}
           <motion.div 
@@ -256,7 +256,7 @@ function App() {
           {/* Right Side: Name */}
           <motion.div 
             style={{ y: yRange, opacity: opacityRange }} 
-            className="flex-grow flex flex-col justify-center items-center md:items-start text-center md:text-left min-w-0"
+            className="md:flex-grow flex flex-col justify-center items-center md:items-start text-center md:text-left min-w-0"
           >
             <h1 className="flex flex-col leading-none tracking-tighter uppercase w-full">
               <span className="text-[11.5vw] md:text-[6vw] font-black text-secondary whitespace-nowrap">SAAKETH</span>
